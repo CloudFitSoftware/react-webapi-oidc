@@ -1,25 +1,37 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
-function App() {
+// MSAL imports
+import { MsalAuthenticationTemplate, MsalProvider } from "@azure/msal-react";
+import {InteractionType, IPublicClientApplication} from "@azure/msal-browser";
+import { AuthenticatedTemplate, UnauthenticatedTemplate } from "@azure/msal-react";
+import { loginRequest } from "./authConfig";
+
+type AppProps = {
+  pca: IPublicClientApplication
+};
+
+function App({ pca }: AppProps) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <MsalProvider instance={pca}>
+        <h1>Hello</h1>
+
+        <AuthenticatedTemplate>
+          <>You are signed in.</>
+        </AuthenticatedTemplate>
+
+        <UnauthenticatedTemplate>
+          <p>Please sign-in to see your profile information.</p>
+        </UnauthenticatedTemplate>
+
+          <MsalAuthenticationTemplate
+              interactionType={InteractionType.Redirect}
+              authenticationRequest={loginRequest}
+          >
+              <p>foo</p>
+          </MsalAuthenticationTemplate>
+
+      </MsalProvider>
   );
 }
 
