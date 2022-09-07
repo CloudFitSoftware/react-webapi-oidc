@@ -21,6 +21,9 @@ function App() {
             authClient={keycloak}
             onEvent={eventLogger}
             onTokens={tokenLogger}
+            initOptions={{
+                    pkceMethod: 'S256'
+                }}
         >
             <React.StrictMode>
                 <Header/>
