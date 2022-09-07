@@ -4,6 +4,7 @@ import './App.css';
 import {ReactKeycloakProvider} from '@react-keycloak/web';
 import keycloak from './keycloak';
 import {Header} from './components/Header';
+import {CallApi} from './components/CallApi';
 
 const eventLogger = (event: unknown, error: unknown) => {
     console.log('onKeycloakEvent', event, error);
@@ -24,6 +25,7 @@ function App() {
             <React.StrictMode>
                 <Header/>
                 <h1>Hello</h1>
+                <CallApi/>
             </React.StrictMode>
         </ReactKeycloakProvider>
     );

@@ -20,7 +20,7 @@ export const useAxios = (baseURL: string) => {
         return () => {
             axiosInstance.current = undefined;
         };
-    }, [baseURL, initialized, kcToken]);
+    }, [baseURL, initialized, kcToken, keycloak.authenticated]);
 
     return axiosInstance;
 };
