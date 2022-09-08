@@ -9,7 +9,7 @@ export const useAxios = (baseURL: string) => {
     const {keycloak, initialized} = useKeycloak();
     const kcToken = keycloak?.token ?? '';
     const authenticated = keycloak.authenticated;
-    const invalidateClient =  initialized && authenticated && keycloak.isTokenExpired();
+    const invalidateClient =  initialized && authenticated && keycloak.isTokenExpired(10);
 
     useEffect(() => {
 
