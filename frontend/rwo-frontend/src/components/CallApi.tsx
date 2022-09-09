@@ -1,19 +1,27 @@
-import React, {useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import {useAxios} from '../hooks/useAxios';
 
 export function CallApi() {
 
+    const axiosInstance = useAxios('https://backend.example.com:7094');
+    const [readyForApi, setReadyForApi] = useState(false);
     const [data, setData] = useState(undefined);
 
-    const axiosInstance = useAxios('https://backend.example.com:7094');
+    useEffect(() => {
+        if (!axiosInstance.current || !readyForApi) return;
 
-    const callApi = () => {
-        console.log('callApi callback executing...');
-        !!axiosInstance.current && axiosInstance.current.get('/WeatherForecast')
+        console.log('Initiating the API call...');
+
+        axiosInstance.current.get('/WeatherForecast')
             .then(res => setData(res.data))
-            .catch(err => setData(err))
-        ;
-    };
+            .catch(err => setData(err));
+
+        setReadyForApi(false);
+    }, [readyForApi, axiosInstance]);
+
+    const callApi = useCallback(() => {
+        setReadyForApi(true);
+    }, []);
 
     return (
         <><h2>Call API</h2>

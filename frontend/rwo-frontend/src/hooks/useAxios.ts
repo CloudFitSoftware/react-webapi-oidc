@@ -11,6 +11,7 @@ export const useAxios = (baseURL: string) => {
     const kcToken = keycloak?.token ?? '';
     const authenticated = keycloak.authenticated;
     const minValidityInSeconds = 10;
+    const checkpointUrgency = authenticated && keycloak.isTokenExpired(minValidityInSeconds);
 
     useEffect(() => {
 
@@ -19,6 +20,7 @@ export const useAxios = (baseURL: string) => {
         }
 
         function setAxiosInstance() {
+            console.log('Setting HTTP client (axios) instance.');
             axiosInstance.current = axios.create({
                 baseURL,
                 headers: {
@@ -27,15 +29,15 @@ export const useAxios = (baseURL: string) => {
             });
         }
 
-        console.log('Setting HTTP client (axios) instance.');
-
         setAxiosInstance();
+
+        if (!checkpointUrgency) return cleanUp();
 
         keycloak.updateToken(minValidityInSeconds)
             .then((refreshed) => {
                 if (refreshed) {
-                    setAxiosInstance();
                     console.log('Token was successfully refreshed.');
+                    setAxiosInstance();
                 } else {
                     console.log('Token is still valid.');
                 }
@@ -46,7 +48,7 @@ export const useAxios = (baseURL: string) => {
 
         return cleanUp();
 
-    }, [baseURL, initialized, kcToken, authenticated, keycloak]);
+    }, [baseURL, initialized, kcToken, checkpointUrgency, authenticated, keycloak]);
 
     return axiosInstance;
 };
