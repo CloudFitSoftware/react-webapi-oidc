@@ -20,9 +20,11 @@ export function Header() {
 
     return <>
         {!keycloak.authenticated && (
-            <button onClick={login}>
-                Login
-            </button>
+            <><span>You are currently not logged in. &nbsp;</span>
+                <button onClick={login}>
+                    Login
+                </button>
+            </>
         )}
 
         {!!keycloak.authenticated && (

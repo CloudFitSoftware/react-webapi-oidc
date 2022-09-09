@@ -5,27 +5,48 @@ import axios from 'axios';
 import {useKeycloak} from '@react-keycloak/web';
 
 export const useAxios = (baseURL: string) => {
+
     const axiosInstance = useRef<AxiosInstance>();
     const {keycloak, initialized} = useKeycloak();
     const kcToken = keycloak?.token ?? '';
     const authenticated = keycloak.authenticated;
-    const invalidateClient =  initialized && authenticated && keycloak.isTokenExpired(10);
+    const minValidityInSeconds = 10;
 
     useEffect(() => {
 
-        console.log("Creating a new HTTP client (axios).")
+        function cleanUp() {
+            return () => axiosInstance.current = undefined;
+        }
 
-        axiosInstance.current = axios.create({
-            baseURL,
-            headers: {
-                Authorization: initialized && authenticated ? `Bearer ${kcToken}` : false,
-            },
+        function setAxiosInstance() {
+            axiosInstance.current = axios.create({
+                baseURL,
+                headers: {
+                    Authorization: initialized && authenticated ? `Bearer ${kcToken}` : false,
+                },
+            });
+        }
+
+        console.log('Setting HTTP client (axios) instance.');
+
+        setAxiosInstance();
+
+        keycloak.updateToken(minValidityInSeconds)
+            .then((refreshed) => {
+                if (refreshed) {
+                    setAxiosInstance();
+                    console.log('Token was successfully refreshed.');
+                } else {
+                    console.log('Token is still valid.');
+                }
+            }).catch((err) => {
+            console.log('Failed to refresh the token, or the session has expired.');
+            if (err) console.error(err);
         });
 
-        return () => {
-            axiosInstance.current = undefined;
-        };
-    }, [baseURL, initialized, kcToken, authenticated, invalidateClient]);
+        return cleanUp();
+
+    }, [baseURL, initialized, kcToken, authenticated, keycloak]);
 
     return axiosInstance;
 };

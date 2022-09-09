@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import React, {useState} from 'react';
 import {useAxios} from '../hooks/useAxios';
 
 export function CallApi() {
@@ -7,12 +7,13 @@ export function CallApi() {
 
     const axiosInstance = useAxios('https://backend.example.com:7094');
 
-    const callApi = useCallback(() => {
+    const callApi = () => {
+        console.log('callApi callback executing...');
         !!axiosInstance.current && axiosInstance.current.get('/WeatherForecast')
             .then(res => setData(res.data))
             .catch(err => setData(err))
         ;
-    }, [axiosInstance]);
+    };
 
     return (
         <><h2>Call API</h2>
