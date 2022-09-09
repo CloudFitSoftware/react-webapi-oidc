@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useAxios} from '../hooks/useAxios';
 
 export function CallApi() {
@@ -11,7 +11,6 @@ export function CallApi() {
         if (!axiosInstance.current || !readyForApi) return;
 
         console.log('Initiating the API call...');
-
         axiosInstance.current.get('/WeatherForecast')
             .then(res => setData(res.data))
             .catch(err => setData(err));
@@ -19,9 +18,7 @@ export function CallApi() {
         setReadyForApi(false);
     }, [readyForApi, axiosInstance]);
 
-    const callApi = useCallback(() => {
-        setReadyForApi(true);
-    }, []);
+    const callApi = () => setReadyForApi(true);
 
     return (
         <><h2>Call API</h2>
