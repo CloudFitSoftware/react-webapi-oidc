@@ -22,8 +22,9 @@ function App() {
             onEvent={eventLogger}
             onTokens={tokenLogger}
             initOptions={{
-                    pkceMethod: 'S256'
-                }}
+                pkceMethod: 'S256',
+                checkLoginIframe: false
+            }}
         >
             <React.StrictMode>
                 <Header/>

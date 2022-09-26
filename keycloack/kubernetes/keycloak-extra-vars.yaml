@@ -1,0 +1,5 @@
+extraEnv: |
+  - name: PROXY_ADDRESS_FORWARDING
+    value: "true"
+  - name: KEYCLOAK_PROXY_ADDRESS_FORWARDING
+    value: "true"
