@@ -3,7 +3,7 @@ import {useAxios} from '../hooks/useAxios';
 
 export function CallApi() {
 
-    const axiosInstance = useAxios('https://backend.example.com:7094');
+    const axiosInstance = useAxios(process.env.REACT_APP_BACKEND_API_URL ?? '');
     const [readyForApi, setReadyForApi] = useState(false);
     const [data, setData] = useState(undefined);
 
