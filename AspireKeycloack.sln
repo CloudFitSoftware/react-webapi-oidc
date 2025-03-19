@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35818.85
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "backend", "backend\backend.csproj", "{5ABDAE0F-D3F1-8B4C-5AD0-72475C737F77}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspireKeycloack.AppHost", "AspireKeycloack.AppHost\AspireKeycloack.AppHost.csproj", "{E45F22E7-3955-4934-9D3F-9600A5AB45EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspireKeycloack.ServiceDefaults", "AspireKeycloack.ServiceDefaults\AspireKeycloack.ServiceDefaults.csproj", "{543F1A9E-BA89-F518-7DDF-6BF3D3222B86}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "frontend", "frontend\frontend.esproj", "{462EE049-9FE1-B47D-1B3E-22BACA5D9185}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5ABDAE0F-D3F1-8B4C-5AD0-72475C737F77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ABDAE0F-D3F1-8B4C-5AD0-72475C737F77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ABDAE0F-D3F1-8B4C-5AD0-72475C737F77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ABDAE0F-D3F1-8B4C-5AD0-72475C737F77}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E45F22E7-3955-4934-9D3F-9600A5AB45EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E45F22E7-3955-4934-9D3F-9600A5AB45EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E45F22E7-3955-4934-9D3F-9600A5AB45EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E45F22E7-3955-4934-9D3F-9600A5AB45EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{543F1A9E-BA89-F518-7DDF-6BF3D3222B86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{543F1A9E-BA89-F518-7DDF-6BF3D3222B86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{543F1A9E-BA89-F518-7DDF-6BF3D3222B86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{543F1A9E-BA89-F518-7DDF-6BF3D3222B86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{462EE049-9FE1-B47D-1B3E-22BACA5D9185}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{462EE049-9FE1-B47D-1B3E-22BACA5D9185}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{462EE049-9FE1-B47D-1B3E-22BACA5D9185}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{462EE049-9FE1-B47D-1B3E-22BACA5D9185}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{462EE049-9FE1-B47D-1B3E-22BACA5D9185}.Release|Any CPU.Build.0 = Release|Any CPU
+		{462EE049-9FE1-B47D-1B3E-22BACA5D9185}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FFF834EB-D9E9-49A5-8B8C-AA3C289EB7C5}
+	EndGlobalSection
+EndGlobal
