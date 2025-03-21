@@ -25,6 +25,10 @@
     <ProjectReference Include="..\backend\backend.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Realms\" />
+  </ItemGroup>
+
   <Target Name="RestoreNpm" BeforeTargets="Build" Condition=" '$(DesignTimeBuild)' != 'true' ">
 	  <ItemGroup>
 		  <PackageJsons Include="..\frontend\package.json" />
