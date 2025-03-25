@@ -4,15 +4,14 @@ import {Header} from "./header/Header.tsx";
 
 function App() {
 
-  return (
-    <>
-      <Header/>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <WeatherForecast/>
-      </div>
-    </>
-  )
+    return (
+        <>
+            <Header/>
+            <div className="card">
+                <WeatherForecast/>
+            </div>
+        </>
+    )
 }
 
 export default App
