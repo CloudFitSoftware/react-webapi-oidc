@@ -10,8 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "oidc-client-ts": "^3.2.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-oidc-context": "^3.2.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",
