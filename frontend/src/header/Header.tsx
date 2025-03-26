@@ -5,7 +5,7 @@ async function sha256(message: string) {
     const msgBuffer = new TextEncoder().encode(message);
     const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
     const hashArray = Array.from(new Uint8Array(hashBuffer));
-    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('').toUpperCase();
 }
 
 export function Header() {
@@ -19,7 +19,7 @@ export function Header() {
     const [isAuthorized, setIsAuthorized] = useState(false);
 
     useEffect(() => {
-        const requiredRoleHash = import.meta.env.VITE_ROLE_HASH ?? '';
+        const requiredRoleHash = import.meta.env.VITE_ROLE_HASH.toUpperCase() ?? '';
 
         // Extract roles from the user profile
         const roles: string[] = Array.isArray(auth.user?.profile?.role) ? auth.user.profile.role : [];
