@@ -133,14 +133,13 @@ function useAxios<T>(
             async (error) => {
                 if (error.response?.status === 401) {
                     console.warn("Unauthorized, attempting token refresh...");
-                    try {
-                        await auth.signinSilent(); // Attempt silent token refresh
+                    // Attempt silent token refresh
+                    if (await auth.signinSilent()) {
                         error.config.headers['Authorization'] = `Bearer ${auth.user?.access_token}`;
                         return axios.request(error.config); // Retry the original request
-                    } catch {
-                        console.warn("Token refresh failed, redirecting to login...");
-                        await auth.signinRedirect(); // Redirect to log in if refresh fails
                     }
+                    console.warn("Token refresh failed, redirecting to login...");
+                    await auth.signinRedirect(); // Redirect to log in if refresh fails
                 }
                 return Promise.reject(error);
             }

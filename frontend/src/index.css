@@ -62,6 +62,10 @@ button:active {
     transform: scale(0.95);
 }
 
+.error {
+    color: red;
+}
+
 @media (prefers-color-scheme: light) {
     :root {
         color: #213547;
