@@ -1,7 +1,7 @@
-using AspireKeycloack.AppHost;
-using Projects;
 using System.Security.Cryptography;
 using System.Text;
+using AspireKeycloack.AppHost;
+using Projects;
 
 const int keycloakPort = 3443;
 const int keycloakManagementPort = 3444;
