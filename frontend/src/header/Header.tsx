@@ -22,7 +22,7 @@ export function Header() {
         const requiredRoleHash = import.meta.env.VITE_ROLE_HASH ?? '';
 
         // Extract roles from the user profile
-        const roles: string[] = Array.isArray(auth.user?.profile?.roles) ? auth.user.profile.roles : [];
+        const roles: string[] = Array.isArray(auth.user?.profile?.role) ? auth.user.profile.role : [];
 
         const checkAuthorization = async () => {
             try {
@@ -40,7 +40,7 @@ export function Header() {
             }
         };
 
-        if (auth.user) {
+        if (auth.user?.profile?.role) {
             checkAuthorization().then();
         }
 
@@ -54,7 +54,7 @@ export function Header() {
         <>
             {!auth.isAuthenticated && (
                 <>
-                    <span>You are currently not logged in. &nbsp;</span>
+                    <span>You are currently <em>not logged in</em>. &nbsp;</span>
                     <button onClick={login}>Login</button>
                 </>
             )}

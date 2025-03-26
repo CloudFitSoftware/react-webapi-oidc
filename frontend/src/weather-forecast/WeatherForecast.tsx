@@ -10,7 +10,7 @@ export interface Forecast {
 
 const WeatherForecast: React.FC = () => {
 
-    const {data: forecasts, loading, fetchData} = useAxios<Forecast[]>(
+    const {data: forecasts, loading, fetchData, error} = useAxios<Forecast[]>(
         {method: "GET", url: `${import.meta.env.VITE_API_URL}/WeatherForecast`},
         {retries: 7, delay: 50, autoFetch: false, cacheEnabled: false}
     );
@@ -58,6 +58,7 @@ const WeatherForecast: React.FC = () => {
                     Fetch Weather
                 </button>
                 {ForecastDisplay()}
+                {error && <p className="error">Error: {error}</p>}
             </header>
         </div>
     );
