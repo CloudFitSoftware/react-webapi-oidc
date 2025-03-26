@@ -6,22 +6,15 @@ backed by a *C#, .NET, WebAPI* backend, to the *Keycloak* identity provider, usi
 *Authorization Code Flow with Proof Key for Code Exchange (PKCE)*.
 
 ## Parts of the system
-The system consists of three separate parts, each running on its own domain. In this sample, the domains 
-are configured as follows:
+The system consists of three separate parts. In this sample, .NET Aspire configures the endpoints as follows:
 
-- https://keycloak.example.com/ -- Keycloak identity provider
-- https://frontend.example.com:3000/ -- React frontend application
-- https://backend.example.com:7094/ -- WebAPI backend application
+- https://localhost:3443 -- Keycloak identity provider
+- https://localhost:3444 -- Keycloak management port
+- https://localhost:3445 -- WebAPI backend application
+- https://localhost:3446 -- React frontend application
 
-If you are running all three on your development machine, you can add the following entries 
-to the **hosts** file:
-```
-127.0.0.1       keycloak.example.com
-127.0.0.1       backend.example.com
-127.0.0.1       frontend.example.com
-```
-Please note *https* is essential for authentication. For development purposes, if you want to run 
-this sample locally then configure and trust self-signed TLS certificates. 
+Please note *https* is essential for authentication. When orchestrating the solution execution with .NET Aspire,
+it will use the Visual Studio configured self-signed TLS developer certificates for all the components.
 
 ## Keycloak configuration
 
