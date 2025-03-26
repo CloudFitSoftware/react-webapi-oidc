@@ -42,7 +42,7 @@ Before setting up the project, ensure you have the following installed:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/orderfactory/react-webapi-oidc.git
+git clone ...
 cd react-webapi-oidc
 ```
 
