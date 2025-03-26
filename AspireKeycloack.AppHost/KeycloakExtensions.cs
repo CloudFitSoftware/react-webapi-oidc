@@ -34,7 +34,8 @@ public sealed class KeycloakResource(string name, ParameterResource? admin, Para
     public ParameterResource AdminPasswordParameter { get; } = ThrowIfNull(adminPassword);
 
     private static T ThrowIfNull<T>([NotNull] T? argument,
-        [CallerArgumentExpression(nameof(argument))] string? paramName = null)
+        [CallerArgumentExpression(nameof(argument))]
+        string? paramName = null)
     {
         return argument ?? throw new ArgumentNullException(paramName);
     }
