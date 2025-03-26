@@ -6,7 +6,7 @@ backed by a *C#, .NET, WebAPI* backend, to the *Keycloak* identity provider, usi
 *Authorization Code Flow with Proof Key for Code Exchange (PKCE)*.
 
 ## Parts of the system
-The system consists of three separate parts. In this sample, .NET Aspire configures the endpoints as follows:
+The system consists of the following parts. In this sample, .NET Aspire configures the endpoints as follows:
 
 - https://localhost:3443 -- Keycloak identity provider
 - https://localhost:3444 -- Keycloak management port
@@ -26,7 +26,7 @@ the *Proof Key for Code Exchange Code Challenge Method* to **S256**.
 
 ![PKCE Challenge Method](pictures/pkce-method.png)
 
-This may also be good time to verify that your *Access Token Lifespan* is set to 
+This may also be a good time to verify that your *Access Token Lifespan* is set to 
 a relatively short value, something like 5 minutes usually works well.
 
 ### ASP.NET Role Based Authentication
