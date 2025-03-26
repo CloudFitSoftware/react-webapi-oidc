@@ -10,7 +10,7 @@ const int frontendPort = 3446;
 
 const string realm = "CloudFit";
 const string? authClientId = "rwo-frontend";
-const string accessTokenAudience = "account";
+const string accessTokenAudience = "rwo-backend";
 const string requiredRole = "meteorologist";
 
 const string keycloakDomain = "localhost";

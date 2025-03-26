@@ -773,6 +773,22 @@
       "authenticationFlowBindingOverrides": {},
       "fullScopeAllowed": true,
       "nodeReRegistrationTimeout": -1,
+      "protocolMappers": [
+        {
+          "id": "7de248b5-e1d9-4409-a28a-49a3782c0a0a",
+          "name": "Backend WebAPI Audience Mapper",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-audience-mapper",
+          "consentRequired": false,
+          "config": {
+            "id.token.claim": "false",
+            "lightweight.claim": "false",
+            "access.token.claim": "true",
+            "introspection.token.claim": "true",
+            "included.custom.audience": "rwo-backend"
+          }
+        }
+      ],
       "defaultClientScopes": [
         "web-origins",
         "acr",
