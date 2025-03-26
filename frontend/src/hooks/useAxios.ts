@@ -131,7 +131,10 @@ function useAxios<T>(
         const responseInterceptor = axios.interceptors.response.use(
             (response) => response,
             async (error) => {
-                if (error.response?.status === 401) {
+                if (
+                    error.response?.status === 401
+                    && (!auth.isAuthenticated || auth.user?.access_token && auth.user.expired)
+                ) {
                     console.warn("Unauthorized, attempting token refresh...");
                     // Attempt silent token refresh
                     if (await auth.signinSilent()) {
