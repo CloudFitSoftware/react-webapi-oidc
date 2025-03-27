@@ -415,6 +415,63 @@
       ]
     }
   },
+  "users": [
+    {
+      "id": "96fabc27-2427-404f-b795-a7006dfbde94",
+      "username": "bob",
+      "emailVerified": false,
+      "createdTimestamp": 1742752402130,
+      "enabled": true,
+      "totp": false,
+      "credentials": [
+        {
+          "id": "1821ba75-dd30-409b-a63f-83edbf864c43",
+          "type": "password",
+          "userLabel": "My password",
+          "createdDate": 1742752423940,
+          "secretData": "{\"value\":\"J4JhFV35QyCvX+ue/UwDGQCc6nLqY0yZvhuGQGTVvEY=\",\"salt\":\"4M5tj9U5XfYb16rxvIdqAQ==\",\"additionalParameters\":{}}",
+          "credentialData": "{\"hashIterations\":5,\"algorithm\":\"argon2\",\"additionalParameters\":{\"hashLength\":[\"32\"],\"memory\":[\"7168\"],\"type\":[\"id\"],\"version\":[\"1.3\"],\"parallelism\":[\"1\"]}}"
+        }
+      ],
+      "disableableCredentialTypes": [],
+      "requiredActions": [],
+      "realmRoles": [
+        "default-roles-cloudfit"
+      ],
+      "notBefore": 0,
+      "groups": []
+    },
+    {
+      "id": "ee5c08db-9651-4350-96d5-7dfe2efae665",
+      "username": "jane",
+      "emailVerified": false,
+      "createdTimestamp": 1742943396395,
+      "enabled": true,
+      "totp": false,
+      "credentials": [
+        {
+          "id": "966b18e9-53d4-4ebe-be8b-5c8e7e6964ce",
+          "type": "password",
+          "userLabel": "My password",
+          "createdDate": 1742943415997,
+          "secretData": "{\"value\":\"4NpltJWQk0xSxqXkUnvicWnBCX1RtdkvJAEEJPuOraQ=\",\"salt\":\"GOIDgU0tqH+HWobw0d6XXA==\",\"additionalParameters\":{}}",
+          "credentialData": "{\"hashIterations\":5,\"algorithm\":\"argon2\",\"additionalParameters\":{\"hashLength\":[\"32\"],\"memory\":[\"7168\"],\"type\":[\"id\"],\"version\":[\"1.3\"],\"parallelism\":[\"1\"]}}"
+        }
+      ],
+      "disableableCredentialTypes": [],
+      "requiredActions": [],
+      "realmRoles": [
+        "default-roles-cloudfit"
+      ],
+      "clientRoles": {
+        "rwo-frontend": [
+          "meteorologist"
+        ]
+      },
+      "notBefore": 0,
+      "groups": []
+    }
+  ],
   "groups": [],
   "defaultRole": {
     "id": "c854cf5c-c617-4cb1-951c-c71e65a98aff",
@@ -1656,6 +1713,12 @@
         "providerId": "rsa-enc-generated",
         "subComponents": {},
         "config": {
+          "privateKey": [
+            "MIIEpAIBAAKCAQEApoOSBqmzrvmvsPyM2LUi0Orj6+qU7WQzzGh1MlHs2nCHvaX87qQJklwq5dUicuHwfgLHHwRYa/ew/N5d2Cd3QPsUGsXzVCLrsBPUUl9sk1ssrKHYoeuZ7091Uq1An40ZIY4jpFP/YUzMURxjgUem70yUYuLRzJdiStKWfKriDcIfUuzbo912KJbZcQINoXZkFAoBUJXSxLyunUX6C7M8OcZm8CPGfEymt+jQgmzf6W5bfeLMrUhG+n7nKJaCEXHerIE3xiaUAAlmklyWErcRaGrUJgw1GwWunmZFqO1pIbTk3f8DT/VJDIJEtx0MI4nUEPJkSXzruRb8QG9HniknmwIDAQABAoIBADFoCYxzju6EhGZR0SK9wCpX/6+wx2aWnC3y8o8vMsVvrT8OwLk4L+Te9xWBw3pt4rMo9NcVrXy/niKxggvQTfiYZxM4l+XnhKIWiCG20Zr5awx/6yzEIMUagPe6k1mj/ohvydCI4dYHePo6H6Ys0fHf+YlLvq9jXZVQ3bj45SDqdHi9RKWiWplJvr6bFylHcY/wSArNHoSxwo1x3tGnkOFaggxaqAmQeJ9sK+ZL5JFhTaKcfdEX7rnted2bpUYpjvyO9ZaVEeYXTUc0HyxSXAM/OKxpV9VtzwSwpGbtrDV3PJ90wgOIt97TkRtLWH8gsAxz2mFIwZ0QlhmZewZgBt0CgYEA6Xt09R1dOn8R78LsbkTWi8jAITZ/jP2etKmc/OMfKdoruSJFMhde5B4fH5MtjHPFKDca2Q32AoQHdngOjtjy6Vrs4uav1uFJWr/o90Oq/go/I4/ypYAkt1VZMkp87fgPWRoZ2xmvqFenBfbifjOoWrUQBtkL8VvEtrmf/bF4X/cCgYEAtpK0VE9CtA+R2oQSDs/Udf4ar4qttJH/zjcIc5BumN4/FAGBp+vviqNBlk8Lk4D1TOWOTZWRw7y7ae9QlhMCw6ij6Q6+bCPctUZ54cX2gBpO/9Z/CJZ3dKznzejQ0h2dVG/P1jW/uKId6453NVZBhgjz3rzKOZDCz3eOmCV1FH0CgYBSsfNezaOzkEYeEYAEHkWPBO9n1BGhMkL/4gNEXn0vKaLK06SGdViam0CSwmIjmO1/rOTJc/RqN7Ec+LDPT2/ZzuaQBvzIssp0Zfxxd3ocuCxcwCNFEvnuJUCOW2ucLXviJyh5PcPFcCYsKqFV6Z37Yp3mjwF33vTxcxWDmVP1SQKBgQCeU1CggG+m+I2Sgs+qGp7zh92ad1e17Jp6OQ1SMmFGngzzi27lsVv0zSi2cWvniYCwI64pJ9jVdpjMACXRT0Epbdhe5lNKMjtW1Hwjx2nBo474nAlj6CBFhSAsV4anf9kM/T2uVMQjGCt8N/q2vUtrMd5SPUPdceUOx25YELucfQKBgQC1XBow3Ns28B03KLTvh6jsVenWo6BpMmlQRMSqg0gG5Gz898dVaV9hIV3F0JHaJDiyHa9dRc74ga0THD1Z4V7zTvxrWIc6mKiFZk+gIRyVeDHNR4halQV9IRdjKes2mgilR+qibEeTbXDrELPg+Ljgrwq+voFNhEMa9Tx9trjMFQ=="
+          ],
+          "certificate": [
+            "MIICnzCCAYcCBgGVw89+VTANBgkqhkiG9w0BAQsFADATMREwDwYDVQQDDAhDbG91ZEZpdDAeFw0yNTAzMjMxNjIwMTBaFw0zNTAzMjMxNjIxNTBaMBMxETAPBgNVBAMMCENsb3VkRml0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEApoOSBqmzrvmvsPyM2LUi0Orj6+qU7WQzzGh1MlHs2nCHvaX87qQJklwq5dUicuHwfgLHHwRYa/ew/N5d2Cd3QPsUGsXzVCLrsBPUUl9sk1ssrKHYoeuZ7091Uq1An40ZIY4jpFP/YUzMURxjgUem70yUYuLRzJdiStKWfKriDcIfUuzbo912KJbZcQINoXZkFAoBUJXSxLyunUX6C7M8OcZm8CPGfEymt+jQgmzf6W5bfeLMrUhG+n7nKJaCEXHerIE3xiaUAAlmklyWErcRaGrUJgw1GwWunmZFqO1pIbTk3f8DT/VJDIJEtx0MI4nUEPJkSXzruRb8QG9HniknmwIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQBhP3lnjKxmAe4eb90xHYUEF4ELWpk63eBeTcklNDz9S/A9vfa0tIvIlCucYnQzxHf/6VuIvYOa1Kp3cKGfjlX4QEWuE5SdnvOx+CWUTkPjRB9Pb2e96THqA2YARYwLNXmIKrC19s5Igib+CnRhJ1RIz2jOVfmznIcqCxGoVjgaOMPrJFcV9vEoi+7ecLLzHjq2y9WZXN2JsSjir9wrDMOjY37K73pgZWma1aU7jFYlIQ8RG+Rs9C3nteI8Bz6eFy5/+QkmX4uptg/eeCSCT8/pE0Y+6ZD0V1TfbclmFZ6rEa+GJBKZ+5VjAYD+TZOJFi7WxwpNjOStVMvR9Z4cUl71"
+          ],
           "priority": [
             "100"
           ],
@@ -1670,6 +1733,12 @@
         "providerId": "hmac-generated",
         "subComponents": {},
         "config": {
+          "kid": [
+            "fef8fc37-7473-427c-88f2-77f4c65951c6"
+          ],
+          "secret": [
+            "7qvU4QsdjbJSvx_rAtB3jlOMQZIUH0L6D7g04FFer0vvDt989X8g76zdHwk-n8wj7Ja7WSY3QNHlsRUm1szWufGm-na3qBu08T6JJEDGfj_Q5W_m1aToNbpf3FA0E3UcrC_EZYpSd_-UhcHXXTEmv5BlzVnaixrUBNcsNsf9UWw"
+          ],
           "priority": [
             "100"
           ],
@@ -1684,6 +1753,12 @@
         "providerId": "aes-generated",
         "subComponents": {},
         "config": {
+          "kid": [
+            "296c5276-0a96-4b6a-96ea-164acc49c7c1"
+          ],
+          "secret": [
+            "_MXGTfuHuGJidlGy3UIgSw"
+          ],
           "priority": [
             "100"
           ]
@@ -1695,6 +1770,12 @@
         "providerId": "rsa-generated",
         "subComponents": {},
         "config": {
+          "privateKey": [
+            "MIIEpAIBAAKCAQEAwtkuXx/FtrttEUOuccVW8Ke3fYsSwP+nTcQRZPX97JyNW9ARR9hNKvkI0CzhBAFbmLiLRZN2NT+maQRUSXOqQ26tGmhY/fan72JgKX36MmjbHKfFhgv5JpOHeZaKkxqxVm0gdw93btWmwoF7M8i6jkuHga0IuDifdTZSj5fJYArxm/m7zLBund+BJLuTk+kz9YswemyNXHwb0ginspT+5aHicQ56NPYWbNowktQmI2oZsMUsoP5Ld+ZSVyRakGEcSZVItaDtGe3Hsd/juAlr0dTFuE9TxrgePiOy/TTeO6ikdIOlYZ5vZOo28it4S6BgQ76Zqo+Tn6p5gbfXj9B90QIDAQABAoIBADr9R2WzF8d/rMB6ThjRlsWa8RlH/nCBtaP8hQuc0bhNmRo/vsuSd6JX7Mwhmin9Qz7UOA3jW/k5AOdwURg/tT9fBXcmOjMA9sypatWE9zdFuXhObqVrgI2mQnCUG/X3MdMpjJefDhh3BFqEmskNrzUfNrISsb4cHmJ9BLfGS0gQ38JC3oinUDnVgIIThUeO8i4sJ1k12SqoFtF0Z8kynOR7ekBSSYo+BCPdp/L+M39TnPDPemrPG0Ylp1g1upejpdtHTHhfjM9eBzPi6OAfKb5WJJKLVaNlUBdZBOEFB0zmsbaubYJqJkkeCizngv54W3Z7myZf3d4YR6I/WpOmBjUCgYEA/h7FaoIQmRweCzT3zIIFPbJGlIS75LRwi9gNJI7mm8hkKy9e5H/X9Ymln8VWR5l+pwBUzqJidGylCqEh1tQTSWsHPpNL0jMYzVtC+WyWdEqO8UR1kCjLIch6CkyY40SEFZ/DJbY2ItkcOF8vQAvnFKysmOtTbZrr/mK3wD5yLjsCgYEAxEoqpKyR3LESrZClh4YP9o7Y08jTRYT5AJvk3Xm13pc0UDTQp+f8QRgH9rzR0e0WZbDb/A9wmjfLrgEdYVu87y21y7Cb35OjYsx2sB3Z0/ZkJvFXoFuONeFl1w+tOhk+j8SigrrAw0+VirkAEOVz7pCKbWmqNFCpMfg3Ir/fB2MCgYEA4Ajc3wOAApwpWJQACwpt+HCdjP5gcEcsGf4FyD87zAelV/VRYX3cNRp/LBZb9I+8exrtqaa7ygymjHJ2VOFvh4CWSHKvm8d0jEdzClbTZf79enNyef+c5lHKVh4lg+e50x6gezTjEWH7YS95hqt3tGBvYfnF+ZFlkUYS3aewHlUCgYEAilBIpCkFzyDnLG5UdZ69+NrHZtSIKuB8JTW0m2t8ABFDx5CvxuDtG2E3m2GJ6AbMVXO+T2sByWmvmDko3sWp6E+pXpJgA7cg1imFKKygJX/lKpu9Rz28g7MD8/sT8XCAaQYCDWRTGE0n7sxVg5Jrkps/L8HZMWv1DUT+dPoGykkCgYAubEw9AYkncGFFLPZ8at3yaI1jl/Jb+kxZHvnuNRbu8fUgpIbDAED/jhBxrzgq80+xrAqwgQs0i5mnwgXZrZ8TR1pTHhlhryiOvDj52mFCo4cgDmrJrM2Pd6ZGr4sna3aTzAtD1kRtlJJDpH2KTgzoxvFGuiZP83nKErm/CmYA7g=="
+          ],
+          "certificate": [
+            "MIICnzCCAYcCBgGVw89+qzANBgkqhkiG9w0BAQsFADATMREwDwYDVQQDDAhDbG91ZEZpdDAeFw0yNTAzMjMxNjIwMTBaFw0zNTAzMjMxNjIxNTBaMBMxETAPBgNVBAMMCENsb3VkRml0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwtkuXx/FtrttEUOuccVW8Ke3fYsSwP+nTcQRZPX97JyNW9ARR9hNKvkI0CzhBAFbmLiLRZN2NT+maQRUSXOqQ26tGmhY/fan72JgKX36MmjbHKfFhgv5JpOHeZaKkxqxVm0gdw93btWmwoF7M8i6jkuHga0IuDifdTZSj5fJYArxm/m7zLBund+BJLuTk+kz9YswemyNXHwb0ginspT+5aHicQ56NPYWbNowktQmI2oZsMUsoP5Ld+ZSVyRakGEcSZVItaDtGe3Hsd/juAlr0dTFuE9TxrgePiOy/TTeO6ikdIOlYZ5vZOo28it4S6BgQ76Zqo+Tn6p5gbfXj9B90QIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQA5E/I2LI5HRohc4FUsl8ApvTaT9/hqJzE7n+xSp94aBdJYk5J/BXcpjcrCf5SE658gPHJKDsuHrXu4IGxVdV0lQ6IGw2BGbLCHO/idXhb7UfT90hTomP+4tOK7DzE+PrmGM6B0riTq8rgFq9ewp8I/rUVc35G+4/vZEaUrCe9755lOWXPE9oTE0qaRXW3ZI4mjc4juboaBaTxnTJUhAEjmFGekho7dkFMYW1I82c9QYz4dwJ10SW9Piux67mfMDkgbUQ9onnpCrAAKx+wrcekW7VcnL6ClhzDA85NExHFMc8bl53kFAz2MYuY3Wc8BcEkz0dc4rXJc3eb97MamXuL8"
+          ],
           "priority": [
             "100"
           ]
@@ -1706,6 +1787,12 @@
         "providerId": "hmac-generated",
         "subComponents": {},
         "config": {
+          "kid": [
+            "eaee8be4-33c6-4099-9cf2-e883cf30fa9d"
+          ],
+          "secret": [
+            "2RcdnMcajZPIFwyVWbTJCZe7imvnH5Gcjwtkt4PeQSuYgKQyC8Iqz8cXqQuZ4kJNe6ED-0GufD3tMREBVwou5GE_lP2cQxMfgkuXfk4aFPYLwtniSoTdx3YmlZ9cV6IG6XjuDWLi9Tzz4h_bRzvJzkVzGR15FBfJCi56JsJItSg"
+          ],
           "priority": [
             "100"
           ],
