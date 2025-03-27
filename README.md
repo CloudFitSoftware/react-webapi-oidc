@@ -48,14 +48,17 @@ cd react-webapi-oidc
 
 ### 2. Run the Solution
 
-- Open the AspireKeycloack.sln from Visual Studio.
-- Start the AspireKeycloack.AppHost in https mode.
+- Open the *AspireKeycloack.sln* from Visual Studio.
+
+- Start the *AspireKeycloack.AppHost* in *https* mode.
 
 ## Usage
 
-1. Open the frontend in your browser at `https://localhost:3446`.
-2. Log in using the credentials configured in Keycloak.
-3. Access the weather forecast data from the backend.
+1. After starting the application, you will see three resources in the *.NET Aspire dashboard*: `keycloak`, `frontend`, and `backend`. The keycloak starts in a container; while the container spins up the resource will be in the *“Running (Unhealthy)”* state. Please wait for it to turn *“Running”* with a checkmark in a green circle.
+2. The backend will start once the keycloak is running, and the frontend will start once the backend is running. When all three are in “Running” state, you can click on the frontend endpoint at `https://localhost:3446` to open the application.
+3. The preloaded Keycloak realm comes with two users: “bob” and “jane” (with password “password” for ether). Both users can login to the application, but while “jane” has the required “meteorologist” role, “bob” does not. As such, “jane” will be ale to get weather forecast data, and “bob” will get a *403 – Forbidden* error, when attempting to do so.
+4. To enter the Keycloak admin interface, first click the ellipsis “Actions” button for the keycloak resource in the .NET Aspire dashboard, and choose “View details” menu item. Then scroll-down to the “Environment variables” section, and take a note of the KC_BOOTSTRAP_ADMIN_PASSWORD and KC_BOOTSTRAP_ADMIN_USERNAME variables. Those will contain the credentials you will need to login to the Keycloak as administrator.
+5. Now you can click on the Keycloak `https://localhost:3443` endpoint and proceed with logging in.
 
 ## Keycloak Configuration Details
 
