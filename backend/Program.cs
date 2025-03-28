@@ -37,15 +37,13 @@ builder.Services.AddAuthentication().AddJwtBearer(jwtBearerOptions =>
     };
 });
 
-builder.Services.AddAuthorization(authorizationOptions =>
-{
-    authorizationOptions.AddPolicy(authPolicyName, policy =>
+builder.Services.AddAuthorizationBuilder()
+    .AddPolicy(authPolicyName, policy =>
     {
         policy.AuthenticationSchemes.Add(JwtBearerDefaults.AuthenticationScheme);
         policy.RequireAuthenticatedUser();
         policy.RequireRole(requiredRole);
     });
-});
 
 builder.Services.AddControllers(mvcOptions =>
 {
