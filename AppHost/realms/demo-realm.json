@@ -1,0 +1,140 @@
+{
+  "realm": "demo",
+  "enabled": true,
+  "revokeRefreshToken": true,
+  "refreshTokenMaxReuse": 0,
+  "roles": {
+    "client": {
+      "weather-api": [
+        {
+          "name": "meteorologist",
+          "description": "May read the weather forecast."
+        }
+      ]
+    }
+  },
+  "clients": [
+    {
+      "clientId": "weather-api",
+      "name": "Weather API",
+      "description": "Owns the API's roles. It signs no one in, so every flow is off.",
+      "enabled": true,
+      "publicClient": false,
+      "standardFlowEnabled": false,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": false,
+      "attributes": {
+        "oauth2.device.authorization.grant.enabled": "false",
+        "oidc.ciba.grant.enabled": "false"
+      }
+    },
+    {
+      "clientId": "weather-spa",
+      "name": "Weather SPA",
+      "description": "The browser app: a public client using the authorization code flow with PKCE.",
+      "enabled": true,
+      "publicClient": true,
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": false,
+      "fullScopeAllowed": false,
+      "redirectUris": [
+        "https://localhost:3446/"
+      ],
+      "webOrigins": [
+        "https://localhost:3446"
+      ],
+      "attributes": {
+        "pkce.code.challenge.method": "S256",
+        "post.logout.redirect.uris": "https://localhost:3446/",
+        "oauth2.device.authorization.grant.enabled": "false",
+        "oidc.ciba.grant.enabled": "false"
+      },
+      "protocolMappers": [
+        {
+          "name": "weather-api audience",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-audience-mapper",
+          "config": {
+            "included.client.audience": "weather-api",
+            "id.token.claim": "false",
+            "access.token.claim": "true",
+            "lightweight.claim": "false",
+            "introspection.token.claim": "true"
+          }
+        },
+        {
+          "name": "weather-api roles",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-client-role-mapper",
+          "config": {
+            "usermodel.clientRoleMapping.clientId": "weather-api",
+            "claim.name": "role",
+            "jsonType.label": "String",
+            "multivalued": "true",
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "lightweight.claim": "false",
+            "userinfo.token.claim": "true",
+            "introspection.token.claim": "true"
+          }
+        }
+      ]
+    }
+  ],
+  "clientScopeMappings": {
+    "weather-api": [
+      {
+        "client": "weather-spa",
+        "roles": [
+          "meteorologist"
+        ]
+      }
+    ]
+  },
+  "users": [
+    {
+      "username": "jane",
+      "enabled": true,
+      "email": "jane@example.com",
+      "emailVerified": true,
+      "firstName": "Jane",
+      "lastName": "Doe",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "password",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "default-roles-demo"
+      ],
+      "clientRoles": {
+        "weather-api": [
+          "meteorologist"
+        ]
+      }
+    },
+    {
+      "username": "bob",
+      "enabled": true,
+      "email": "bob@example.com",
+      "emailVerified": true,
+      "firstName": "Bob",
+      "lastName": "Smith",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "password",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "default-roles-demo"
+      ]
+    }
+  ]
+}

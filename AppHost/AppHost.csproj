@@ -1,0 +1,29 @@
+﻿<Project Sdk="Aspire.AppHost.Sdk/13.6.1">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AspireUseCliBundle>true</AspireUseCliBundle>
+    <UserSecretsId>a9140d23-d3be-4ab8-ba60-d75b80184c71</UserSecretsId>
+    <!-- WithHttpsDeveloperCertificate is experimental. -->
+    <NoWarn>$(NoWarn);ASPIRECERTIFICATES001</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Api\Api.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.JavaScript" Version="13.6.1" />
+    <PackageReference Include="Aspire.Hosting.Keycloak" Version="13.6.1-preview.1.26506.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Aspire 13.6.1 still brings in MessagePack 2.5.302 (GHSA-qhrr-8q5h-9q3h).
+         Remove this pin once Aspire.Hosting depends on a patched version. -->
+    <PackageReference Include="MessagePack" Version="2.5.307" />
+  </ItemGroup>
+
+</Project>

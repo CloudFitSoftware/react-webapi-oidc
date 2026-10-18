@@ -7,13 +7,19 @@ version: 2
 updates:
 
   - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/frontend/" # Location of package manifests
+    directory: "/spa/" # Location of package manifests
     schedule:
       interval: "weekly"
     open-pull-requests-limit: 0 # Security updates only
-    
-  - package-ecosystem: "nuget" # See documentation for possible values
-    directory: "/backend/" # Location of package manifests
+
+  - package-ecosystem: "nuget"
+    directory: "/" # The solution at the root lists every project
     schedule:
-      interval: "weekly"      
+      interval: "weekly"
+    open-pull-requests-limit: 0 # Security updates only
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
     open-pull-requests-limit: 0 # Security updates only

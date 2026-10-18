@@ -1,0 +1,3 @@
+# Store text files with LF line endings, whatever core.autocrlf
+# is set to on the machine that commits them.
+* text=auto
