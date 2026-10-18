@@ -1,0 +1,15 @@
+@Api_HostAddress = https://localhost:3445
+
+# No token: 401 Unauthorized.
+GET {{Api_HostAddress}}/forecast
+
+###
+
+# Copy access_token from the "oidc.user:..." entry in the app's
+# session storage. jane gets 200 OK, bob gets 403 Forbidden.
+@token = paste-an-access-token-here
+
+GET {{Api_HostAddress}}/forecast
+Authorization: Bearer {{token}}
+
+###
